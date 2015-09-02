@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{algorithm2e}
+\usepackage{array}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{cite}
+
+\newcommand{\BI}{\begin{itemize}}
+\newcommand{\EI}{\end{itemize}}
+\newcommand{\TTheta}{\textbf{\Theta}}
+
+\include{defs}
+
+\begin{document}
+
+\title{Predictive design}
+\author{Tianxiang Gao \\
+University of North Carolina at Chapel Hill}
+\maketitle
+
+\section{Introduction}
+The aim of predictive design is to produce a design (or a series of design) that can estimate parameter $\theta$ (or other metric score) accurately with all the information at hand. We consider the following model in this text: $\mu$ is the current prior for the true parameter $\theta$, so we have a prior model $p(\theta|\mu)$. Given the true parameter $\theta^*$ and Design $D$ from space $\mathbb{D}$, we can sample the observed data $p(\XX|D,\theta)$. We can calculate the estimation error through an estimation procedure $\delta(D,\theta,\XX) = (\hat{\theta}(\XX) - \theta)^2$. We call $V(D,\theta) = \int_{\XX} \delta(D,\theta,\XX) p(\XX|\theta,D) d\XX$. And $\bar{V}(D,\mu) = \int_{\theta} V(D,\theta) p(\theta|\mu) d\theta$ as the expected loss under knowledge $\mu$. An optimal design $D^* = \argmin_{D \in \mathbb{D}} \bar{V}(D,\mu)$.
+
+
+\bibliographystyle{unsrt}
+\bibliography{tempbib}
+\end{document}
